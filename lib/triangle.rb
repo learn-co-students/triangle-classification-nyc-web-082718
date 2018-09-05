@@ -11,7 +11,7 @@ class Triangle
     if !is_triangle
       raise TriangleError
     else
-      if @l1 == @l2 && @l1 == @l3
+      if [@l1, @l2, @l3].uniq.length == 1
         :equilateral
       elsif [@l1, @l2, @l3].uniq.length == 2
         :isosceles
@@ -21,7 +21,7 @@ class Triangle
     end
   end
 
-end
+  class TriangleError < StandardError
+  end
 
-class TriangleError < StandardError
 end
